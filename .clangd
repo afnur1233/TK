@@ -1,0 +1,183 @@
+# This config file provides C and CXX versioning using the following file extensions:
+# 
+# C 99 => .c99 .h99
+# C 11 => .c11 .h11
+# C 23 => .c23 .h23 .c .h
+# 
+# CXX 14 => .cpp14 .hpp14 .cxx14 .hxx14
+# CXX 17 => .cpp17 .hpp17 .cxx17 .hxx17
+# CXX 20 => .cpp20 .hpp20 .cxx20 .hxx20
+# CXX 23 => .cpp23 .hpp23 .cxx23 .hxx23 .cpp .hpp .cxx .hxx
+
+
+
+CompileFlags:
+  Add: 
+    - -Wall
+    - -Werror
+    - -Wno-missing-braces
+    - -Wno-undefined-inline
+    - -Wno-initializer-overrides
+    - -DDEBUG
+    - -I./include
+    - -I./src
+    - -I./vendor/volk
+    - -I./vendor/SDL/include
+    - -I./vendor/glad/include
+    - -I./vendor/cglm/include
+    - -I./../include
+    - -I./../src
+    - -I./../vendor/volk
+    - -I./../vendor/SDL/include
+    - -I./../vendor/glad/include
+    - -I./../vendor/cglm/include
+    - -I./../../include
+    - -I./../../src
+    - -I./../../vendor/volk
+    - -I./../../vendor/SDL/include
+    - -I./../../vendor/glad/include
+    - -I./../../vendor/cglm/include
+    - -I./../../../include
+    - -I./../../../src
+    - -I./../../../vendor/volk
+    - -I./../../../vendor/SDL/include
+    - -I./../../../vendor/glad/include
+    - -I./../../../vendor/cglm/include
+    - -I./../../../../include
+    - -I./../../../../src
+    - -I./../../../../vendor/volk
+    - -I./../../../../vendor/SDL/include
+    - -I./../../../../vendor/glad/include
+    - -I./../../../../vendor/cglm/include
+    - -I./../../../../include
+    - -I./../../../../src
+  
+Diagnostics:
+  UnusedIncludes: None
+  MissingIncludes: None
+
+---
+
+If:
+  PathMatch:
+    - .*\.c89
+    - .*\.h89
+  PathExclude:
+    - Dependencies/.*
+
+CompileFlags:
+  Add: 
+    - -xc
+    - -std=c89
+
+---
+
+If:
+  PathMatch:
+    - .*\.c99
+    - .*\.h99
+  PathExclude:
+    - Dependencies/.*
+
+CompileFlags:
+  Add: 
+    - -xc
+    - -std=c99
+
+---
+
+If:
+  PathMatch:
+    - .*\.c11
+    - .*\.h11
+  PathExclude:
+    - Dependencies/.*
+
+CompileFlags:
+  Add: 
+    - -xc
+    - -std=c11
+
+---
+
+If:
+  PathMatch: # DEFAULT C STANDARD
+    - .*\.c23
+    - .*\.h23
+    - .*\.c
+    - .*\.h
+  PathExclude:
+    - Dependencies/.*
+
+CompileFlags:
+  Add: 
+    - -xc
+    - -std=c23
+
+---
+
+If:
+  PathMatch:
+    - .*\.cpp14
+    - .*\.hpp14
+    - .*\.cxx14
+    - .*\.hxx14
+  PathExclude:
+    - Dependencies/.*
+
+CompileFlags:
+  Add: 
+    - -xc++
+    - -std=c++14
+
+---
+
+If:
+  PathMatch:
+    - .*\.cpp17
+    - .*\.hpp17
+    - .*\.cxx17
+    - .*\.hxx17
+  PathExclude:
+    - Dependencies/.*
+
+CompileFlags:
+  Add: 
+    - -xc++
+    - -std=c++17
+
+---
+
+If:
+  PathMatch:
+    - .*\.cpp20
+    - .*\.hpp20
+    - .*\.cxx20
+    - .*\.hxx20
+  PathExclude:
+    - Dependencies/.*
+
+CompileFlags:
+  Add: 
+    - -xc++
+    - -std=c++20
+
+---
+
+If:
+  PathMatch: # DEFAULT CXX STANDARD
+    - .*\.cpp23
+    - .*\.hpp23
+    - .*\.cxx23
+    - .*\.hxx23
+    - .*\.cpp
+    - .*\.hpp
+    - .*\.cxx
+    - .*\.hxx
+  PathExclude:
+    - Dependencies/.*
+
+CompileFlags:
+  Add: 
+    - -xc++
+    - -std=c++23
