@@ -403,8 +403,6 @@ TK_Renderer *TK_CreateRendererOPT(TK_RendererCreateInfo createInfo)
                 "       "                                                                                  nl
                 "       o_color += vec4(diffuse * lightColor.xyz    * lightColor.w,    0.0);"              nl
                 "    }"                                                                                    nl
-                "    "                                                                                     nl
-                "    o_color = vec4(texture(u_lightDepth, lightRenderUV(world)).rrr, 1.0);"         nl
                 "}"                                                                                        nl
             );
             
